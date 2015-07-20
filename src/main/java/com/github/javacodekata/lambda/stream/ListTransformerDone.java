@@ -60,4 +60,19 @@ public class ListTransformerDone
         return values.stream().filter(e -> Character.isDigit(e.charAt(0))).map(e -> Integer.parseInt(e)).sorted((e1, e2) -> Integer.compare(e2, e1)).collect(Collectors.toList());
     }
 
+    /**
+     * @author Trevyn
+     */
+    public List<Integer> getSortedDistinctIntegersAboveFive()
+    {
+        return values.stream().filter(e -> Character.isDigit(e.charAt(0))).map(e -> Integer.parseInt(e)).sorted().distinct().filter(e -> e > 5).collect(Collectors.toList());
+    }
+
+    /**
+     * @author Trevyn
+     */
+    public int getSumOfIntegersAboveFive()
+    {
+        return values.stream().filter(e -> Character.isDigit(e.charAt(0))).mapToInt(e -> Integer.parseInt(e)).filter(e -> e > 5).sum();
+    }
 }
